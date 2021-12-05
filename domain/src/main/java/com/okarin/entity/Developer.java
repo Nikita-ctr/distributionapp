@@ -1,5 +1,6 @@
 package com.okarin.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,9 +36,17 @@ public class Developer {
     @Column(name = "PROJECT_HOURS", length = 60)
     private int projectHours;
 
-    @OneToMany
-    private Set<Project> projects = new HashSet<>();
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "project_id")
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Project project;
 
     public Developer() {
+    }
+    public void cloneData(Developer developer){
+        this.first_name=developer.getFirst_name();
+        this.last_name=developer.getLast_name();
+        this.dateOfBirth=developer.getDateOfBirth();
+        this.projectHours=developer.getProjectHours();
     }
 }

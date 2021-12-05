@@ -17,6 +17,7 @@ public interface DeveloperDao {
 
     void delete(Long developerId);
 
+    List<Developer> findByDeveloperId(Integer developerId);
     //Long count();
 
 }
