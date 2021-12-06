@@ -1,6 +1,5 @@
 package com.okarin;
 
-import com.okarin.entity.Developer;
 import com.okarin.entity.Project;
 import com.okarin.exceptions.ProjectNotFoundExeption;
 import org.springframework.beans.factory.annotation.Autowired;

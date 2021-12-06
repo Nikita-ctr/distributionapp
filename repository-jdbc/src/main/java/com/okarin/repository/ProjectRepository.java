@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+//Repository
 public interface ProjectRepository extends CrudRepository<Project,Long> {
 
     @Query(value = "SELECT * FROM project order by id",nativeQuery = true)
