@@ -1,3 +1,6 @@
+DROP table if exists developers;
+DROP table if exists project;
+
 create table developers (
                             id  bigserial not null,
                             date_of_birth timestamp,
