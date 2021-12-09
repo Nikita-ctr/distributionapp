@@ -24,7 +24,7 @@ public class Developer {
     @Column(name = "FIRST_NAME", length = 30)
     private String first_name;
 
-    @Column(name = "LAST_NAME",length = 90)
+    @Column(name = "LAST_NAME", length = 90)
     private String last_name;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -36,17 +36,30 @@ public class Developer {
     @Column(name = "PROJECT_HOURS", length = 60)
     private int projectHours;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "project_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Project project;
 
+
+
+
     public Developer() {
     }
-    public void cloneData(Developer developer){
-        this.first_name=developer.getFirst_name();
-        this.last_name=developer.getLast_name();
-        this.dateOfBirth=developer.getDateOfBirth();
-        this.projectHours=developer.getProjectHours();
+
+    public Developer(Long id, String first_name, String last_name, Date dateOfBirth, int projectHours) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.dateOfBirth = dateOfBirth;
+        this.projectHours = projectHours;
     }
+
+    public void cloneData(Developer developer) {
+        this.first_name = developer.getFirst_name();
+        this.last_name = developer.getLast_name();
+        this.dateOfBirth = developer.getDateOfBirth();
+        this.projectHours = developer.getProjectHours();
+    }
+
 }

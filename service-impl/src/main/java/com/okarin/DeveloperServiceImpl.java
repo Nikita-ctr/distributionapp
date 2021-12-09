@@ -1,6 +1,7 @@
 package com.okarin;
 
 import com.okarin.entity.Developer;
+import com.okarin.entity.Project;
 import com.okarin.exceptions.DeveloperNotFoundExeption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,10 +33,10 @@ public class DeveloperServiceImpl implements DeveloperService{
             return developerDao.findById(developerId);
         else throw new DeveloperNotFoundExeption(developerId);
     }
-
+    //todo fix
     @Override
     public Long create(Developer developer) {
-        projectService.findById(developer.getId());
+        projectService.findById(developer.getProject().getId());
         return developerDao.create(developer);
             }
 

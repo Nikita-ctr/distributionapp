@@ -26,7 +26,11 @@ public class Project {
     public Project() {
     }
 
-   public void cloneData(Project project){
+    public Project(String name) {
+        this.name = name;
+    }
+
+    public void cloneData(Project project){
         this.name=project.getName();
     }
 }
