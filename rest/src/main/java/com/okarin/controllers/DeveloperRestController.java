@@ -38,6 +38,7 @@ public class DeveloperRestController {
     public ResponseEntity<Long> updateDeveloper(@RequestBody Developer developer){
         return new ResponseEntity<>(developerService.update(developer),HttpStatus.OK);
     }
+    
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteDeveloper(@PathVariable Long id){
         developerService.delete(id);
