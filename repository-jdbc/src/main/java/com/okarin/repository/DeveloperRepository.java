@@ -10,6 +10,7 @@ import java.util.List;
 
 public interface DeveloperRepository extends CrudRepository<Developer,Long> {
 
+
     @Query(value = "SELECT * FROM developers order by id",nativeQuery = true)
     List<Developer> findAll();
 

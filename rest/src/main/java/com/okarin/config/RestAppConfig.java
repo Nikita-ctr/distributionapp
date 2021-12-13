@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = "com.okarin")
 @EnableJpaRepositories("com.okarin")
 public class RestAppConfig {
+
 }

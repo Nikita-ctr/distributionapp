@@ -17,6 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "developers")
 public class Developer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

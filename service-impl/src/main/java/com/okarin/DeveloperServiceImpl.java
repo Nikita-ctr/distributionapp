@@ -34,6 +34,7 @@ public class DeveloperServiceImpl implements DeveloperService{
         else throw new DeveloperNotFoundExeption(developerId);
     }
     //todo fix
+
     @Override
     public Long create(Developer developer) {
         projectService.findById(developer.getProject().getId());

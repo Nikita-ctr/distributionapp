@@ -15,7 +15,6 @@ public class ProjectDaoJdbc implements ProjectDao{
      ProjectRepository projectRepository;
 
 
-
     public List<Project> findAll() {
         return projectRepository.findAll();
     }

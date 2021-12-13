@@ -50,6 +50,7 @@ public class DeveloperServiceImplMockTest {
     }
 
     //todo fix
+
     @Test
     void createShouldProcessButEntityListEmpty() {
          Assertions.assertThrows(ProjectNotFoundExeption.class, () -> developerService.create(new Developer(1L, "Name", "LastName", new Date(), 11)));

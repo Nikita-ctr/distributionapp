@@ -9,6 +9,7 @@ public class DeveloperTest {
 
     @Test
     public void getDeveloperSetters(){
+
         Developer developer=new Developer(1L,"Name","LastName",new Date(),11);
 
         Assertions.assertNotNull(developer.getDateOfBirth());

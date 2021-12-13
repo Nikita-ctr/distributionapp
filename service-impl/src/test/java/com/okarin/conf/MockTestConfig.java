@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 @TestConfiguration
 public class MockTestConfig {
 
+
     @MockBean
     ProjectRepository projectRepository;
 
