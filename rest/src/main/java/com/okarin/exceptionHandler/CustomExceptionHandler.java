@@ -12,12 +12,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(DeveloperNotFoundExeption.class)
-    public ResponseEntity<Object> handleEmployeeNotFoundException(DeveloperNotFoundExeption e) {
+    public ResponseEntity<Object> handleDeveloperNotFoundException(DeveloperNotFoundExeption e) {
         return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(ProjectNotFoundExeption.class)
-    public ResponseEntity<Object> handleDepartmentNotFoundException(ProjectNotFoundExeption e) {
+    public ResponseEntity<Object> handleProjectNotFoundException(ProjectNotFoundExeption e) {
         return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 }
