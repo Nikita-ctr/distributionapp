@@ -32,6 +32,7 @@ public class ProjectServiceImpl implements ProjectService{
         return projectDao.create(project);
     }
 
+    //todo fix
     public Long update(Project project) {
         findById(project.getId());
         return projectDao.update(project);
