@@ -11,12 +11,9 @@ import java.util.Optional;
 @Component
 public class DeveloperDaoJdbc implements DeveloperDao {
 
-    private final DeveloperRepository developerRepository;
-
     @Autowired
-    public DeveloperDaoJdbc(DeveloperRepository developerRepository) {
-        this.developerRepository = developerRepository;
-    }
+  DeveloperRepository developerRepository;
+
 
     @Override
     public List<Developer> findAll() {

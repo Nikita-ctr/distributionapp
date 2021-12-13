@@ -11,12 +11,10 @@ import java.util.Optional;
 @Component
 public class ProjectDaoJdbc implements ProjectDao{
 
-    private final ProjectRepository projectRepository;
-
     @Autowired
-    public ProjectDaoJdbc(ProjectRepository projectRepository) {
-        this.projectRepository = projectRepository;
-    }
+     ProjectRepository projectRepository;
+
+
 
     public List<Project> findAll() {
         return projectRepository.findAll();
