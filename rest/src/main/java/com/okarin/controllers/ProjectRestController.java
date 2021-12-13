@@ -27,6 +27,7 @@ public class ProjectRestController {
     public ResponseEntity<List<Project>> projects(){
         return new ResponseEntity<>(projectService.findAll(),HttpStatus.OK);
     }
+
     @GetMapping("{id}")
     public ResponseEntity<Project> getProject(@PathVariable Long id){
         Optional<Project> optional=projectService.findById(id);

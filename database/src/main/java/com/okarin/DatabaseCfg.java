@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 @PropertySource({"classpath:db.properties"})
 public class DatabaseCfg {
 
+
     @Value( "${spring.datasource.url}" )
     private String jdbcUrl;
 

@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface DeveloperService {
 
+
     List<Developer> findAll();
 
     Optional<Developer> findById(Long developerId);

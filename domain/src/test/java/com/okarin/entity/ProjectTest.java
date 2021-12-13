@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 public class ProjectTest {
+
     @Test
     public void getProjectSetters(){
         Project project=new Project("Dex");

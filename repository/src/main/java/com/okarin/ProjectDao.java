@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface ProjectDao {
 
+
     List<Project> findAll();
 
     Optional<Project> findById(Long projectId);

@@ -19,5 +19,6 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ProjectNotFoundExeption.class)
     public ResponseEntity<Object> handleProjectNotFoundException(ProjectNotFoundExeption e) {
         return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
+
     }
 }
