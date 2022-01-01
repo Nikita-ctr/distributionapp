@@ -27,7 +27,7 @@ public class DeveloperDaoJdbc implements DeveloperDao {
     }
 
     @Override
-    public Long create(Developer developer) {
+    public Long create(Developer developer)  {
         return developerRepository.save(developer).getId();
     }
 
@@ -45,7 +45,8 @@ public class DeveloperDaoJdbc implements DeveloperDao {
     }
 
     @Override
-    public List<Developer> findByDeveloperId(Integer developerId) {
-        return developerRepository.findByProjectId(developerId);
+    public List<Developer> findByProjectId(Long projectId) {
+        return developerRepository.findByProjectId(projectId);
     }
+
 }

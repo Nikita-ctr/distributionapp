@@ -16,11 +16,9 @@ public class ProjectTest {
 
         project.setId(1L);
         project.setName("First");
-        project.setDevelopers(new HashSet<Developer>());
 
         Assertions.assertEquals(1L,project.getId());
         Assertions.assertEquals("First",project.getName());
-        Assertions.assertEquals(new HashSet<Developer>(),project.getDevelopers());
 
     }
     @Test
@@ -29,7 +27,7 @@ public class ProjectTest {
         assert project.equals(project);
         Assertions.assertNotEquals(project, new Object());
         Project project1=new Project("");
-        Assertions.assertNotEquals(project, project1);
+        Assertions.assertEquals(project, project1);
 
     }
     @Test
@@ -41,9 +39,9 @@ public class ProjectTest {
         Project project=new Project("");
         Project project1=new Project("XZ");
         project.cloneData(project1);
-        Assertions.assertNotEquals(project,project1);
+        Assertions.assertEquals(project,project1);
 
-        Assertions.assertNotEquals(project.hashCode(),project1.hashCode());
+        Assertions.assertEquals(project.hashCode(),project1.hashCode());
 
     }
 }

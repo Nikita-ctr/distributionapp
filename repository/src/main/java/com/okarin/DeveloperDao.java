@@ -12,13 +12,13 @@ public interface DeveloperDao {
 
     Optional<Developer> findById(Long developerId);
 
-    Long create(Developer developer);
+   Long create(Developer developer);
 
-    Long update(Developer developer);
+   Long update(Developer developer);
 
     void delete(Long developerId);
 
-    List<Developer> findByDeveloperId(Integer developerId);
-    //Long count();
+    List<Developer> findByProjectId(Long projectId);
+
 
 }

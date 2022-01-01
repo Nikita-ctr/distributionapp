@@ -40,6 +40,14 @@ public class DeveloperRepoTest {
         developer = developerRepository.findAll().get(1);
         Assertions.assertEquals(Optional.of(developer), developerRepository.findById(developer.getId()));
     }
+
+    @Test
+    void createShouldAddNewEntity(){
+        long size=developerRepository.count();
+        developerRepository.save(new Developer("Nik","Khmil",new Date(),2,1));
+        Assertions.assertEquals(size+1,developerRepository.findAll().size());
+    }
+
     @Test
     void deleteShouldDeleteAllEntitiesOneByOneInCycleAndDatabaseBeEmpty() {
         for(Developer developer : developerRepository.findAll())
@@ -50,4 +58,11 @@ public class DeveloperRepoTest {
         Assertions.assertTrue(developerRepository.findAll().isEmpty());
     }
 
+    //todo
+@Test
+    void findByProjectIdShouldReturnRelated(){
+        Project project=projectRepository.save(new Project("A"));
+        Developer developer=developerRepository.save(new Developer("Nik","Khmil",new Date(),2,project.getId()));
+        Assertions.assertEquals(1,developerRepository.findByProjectId(project.getId()).size());
+}
 }

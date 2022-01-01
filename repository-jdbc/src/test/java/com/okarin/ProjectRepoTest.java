@@ -25,15 +25,23 @@ public class ProjectRepoTest {
 
     @Test
     void findAllShouldReturnInitiatedEntities(){
-        Project project=projectRepository.findAll().get(0);
         Assertions.assertFalse(projectRepository.findAll().isEmpty());
     }
     @Test
     void findByIdShouldReturnInitiatedEntities() {
         Project project=projectRepository.findAll().get(0);
         Assertions.assertEquals(Optional.of(project), projectRepository.findById(project.getId()));
-        project = projectRepository.findAll().get(1);
+        project = projectRepository.findAll().get(1 );
         Assertions.assertEquals(Optional.of(project), projectRepository.findById(project.getId()));
     }
-
+@Test
+    void createShouldAddNewEntity(){
+        long size=projectRepository.count();
+        projectRepository.save(new Project("A"));
+        Assertions.assertEquals(size+1,projectRepository.findAll().size());
+}
+@Test
+    void countShouldBeEqualsToTestInitiateSet(){
+        Assertions.assertEquals(projectRepository.findAll().size(),projectRepository.count());
+}
 }

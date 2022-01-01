@@ -1,8 +1,6 @@
 package com.okarin.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,8 +9,9 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@ToString
+@EqualsAndHashCode
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Project {
 
     @Id
@@ -20,9 +19,9 @@ public class Project {
     private Long id;
 
     private String name;
-
-    @OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
-    private Set<Developer> developers=new HashSet<>();
+   //todo
+//    @OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
+//    private Set<Developer> developers=new HashSet<>();
 
     public Project() {
     }

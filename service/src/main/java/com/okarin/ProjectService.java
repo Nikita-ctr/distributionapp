@@ -19,6 +19,4 @@ public interface ProjectService {
 
     void delete(Long projectId);
 
-
-
 }

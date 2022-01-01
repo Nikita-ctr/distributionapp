@@ -49,11 +49,11 @@ public class ProjectServiceImplMockTest {
 
     @Test
     void updateShouldThrowDepartmentNotFoundExceptionButNotWhenMocked() {
-        Assertions.assertThrows(ProjectNotFoundExeption.class, () ->projectService.update(new Project("Giti")));
+        Assertions.assertThrows(ProjectNotFoundExeption.class, () ->projectService.update(new Project(1L,"Giti")));
 
-        when(projectRepository.save(any())).thenReturn(new Project(""));
-        when(projectRepository.findById(any())).thenReturn(Optional.of(new Project("")));
-        Assertions.assertNotNull(projectService.update(new Project("")));
+        when(projectRepository.save(any())).thenReturn(new Project(1L,""));
+        when(projectRepository.findById(any())).thenReturn(Optional.of(new Project(1L,"")));
+        Assertions.assertNotNull(projectService.update(new Project(1L,"")));
     }
 
     @Test
