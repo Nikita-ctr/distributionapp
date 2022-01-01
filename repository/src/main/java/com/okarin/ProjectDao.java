@@ -19,5 +19,4 @@ public interface ProjectDao {
 
     void delete(Long projectId);
 
-    //Long count();
 }

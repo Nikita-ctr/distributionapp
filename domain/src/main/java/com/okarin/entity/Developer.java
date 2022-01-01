@@ -1,20 +1,19 @@
 package com.okarin.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
+@EqualsAndHashCode
+@ToString
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "developers")
 public class Developer {
 
@@ -28,32 +27,30 @@ public class Developer {
     @Column(name = "LAST_NAME", length = 90)
     private String last_name;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(updatable = false)
-    @org.hibernate.annotations.CreationTimestamp
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @Column(name = "date_of_birth")
     private Date dateOfBirth;
 
     @NotNull
     @Column(name = "PROJECT_HOURS", length = 60)
     private int projectHours;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "project_id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Project project;
+    @Column(name = "project_id")
+    private long projectId;
+
+    //todo
+//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "project_id")
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+//    private Project project;
 
 
-
-
-    public Developer() {
-    }
-
-    public Developer(Long id, String first_name, String last_name, Date dateOfBirth, int projectHours) {
-        this.id = id;
+    public Developer(String first_name, String last_name, Date dateOfBirth, int projectHours, long projectId) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.dateOfBirth = dateOfBirth;
         this.projectHours = projectHours;
+        this.projectId = projectId;
     }
 
     public void cloneData(Developer developer) {

@@ -19,5 +19,5 @@ public interface DeveloperService {
 
     void delete(Long developerId);
 
-    List<Developer> findByProjectId(Integer projectId);
+    List<Developer> findByProjectId(Long projectId);
 }

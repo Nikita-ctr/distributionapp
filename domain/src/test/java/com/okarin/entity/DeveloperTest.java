@@ -8,14 +8,15 @@ import java.util.Date;
 public class DeveloperTest {
 
     @Test
-    public void getDeveloperSetters(){
+    public void getDeveloperSetters() {
 
-        Developer developer=new Developer(1L,"Name","LastName",new Date(),11);
+        Developer developer=new Developer("Name","LastName",new Date(),11,1);
 
         Assertions.assertNotNull(developer.getDateOfBirth());
-        Assertions.assertEquals(1L,developer.getId());
         Assertions.assertEquals("Name",developer.getFirst_name());
         Assertions.assertEquals("LastName",developer.getLast_name());
+        Assertions.assertEquals(11,developer.getProjectHours());
+        Assertions.assertEquals(1,developer.getProjectId());
 
         developer.setId(1L);
         developer.setFirst_name("N");
@@ -34,26 +35,26 @@ public class DeveloperTest {
     }
     @Test
     public void equalsTest(){
-        Developer developer=new Developer(1L,"","",new Date(),22);
+        Developer developer=new Developer("Name","LastName",new Date(1),11,1);
         assert developer.equals(developer);
         Assertions.assertNotEquals(developer, new Object());
-        Developer developer1=new Developer(1L,"","",new Date(),22);
-        Assertions.assertNotEquals(developer, developer1);
+        Developer developer1=new Developer("Name","LastName",new Date(1),11,1);
+        Assertions.assertEquals(developer, developer1);
 
 
     }
     @Test
     public void toStringTest(){
-        Assertions.assertNotNull(new Developer(1L,"Name","LastName",new Date(),11).toString());
+        Assertions.assertNotNull(new Developer("Name","LastName",new Date(),11,1).toString());
 
     }
     @Test
     public void cloneDataTest(){
-        Developer developer=new Developer(1L,"Name","LastName",new Date(),11);
-        Developer developer1=new Developer(2L,"Last","Name",new Date(1),12);
+        Developer developer=new Developer("Name","LastName",new Date(),11,1);
+        Developer developer1=new Developer("Name","LastName",new Date(),11,1);
         developer.cloneData(developer1);
-        Assertions.assertNotEquals(developer,developer1);
+        Assertions.assertEquals(developer,developer1);
 
-        Assertions.assertNotEquals(developer.hashCode(),developer1.hashCode());
+        Assertions.assertEquals(developer.hashCode(),developer1.hashCode());
     }
 }

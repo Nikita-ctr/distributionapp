@@ -47,28 +47,31 @@ public class MockDaoJdbcTest {
         Assertions.assertNull(projectDao.create(any()));
         Assertions.assertNull(developerDao.create(any()));
     }
+    //todo
         @Test
         void updateShouldReturnAValue() {
             when(projectRepository.save(any())).thenReturn(new Project(""));
             when(projectRepository.findById(any())).thenReturn(Optional.of(new Project("")));
-            when(developerRepository.save(any())).thenReturn(new Developer(1L, "Name", "LastName", new Date(), 11));
-            when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer(1L, "Name", "LastName", new Date(), 11)));
+            when(developerRepository.save(any())).thenReturn(new Developer( "Name", "LastName", new Date(1), 11,1));
+            when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer( "Name", "LastName", new Date(1), 11,1)));
 
-            Assertions.assertNotNull(developerDao.update(new Developer(1L, "Name", "LastName", new Date(), 11)));
+            Assertions.assertNotNull(developerDao.update(new Developer("Name", "LastName", new Date(1), 11,1)));
+
 
 
         }
     @Test
     void deleteShouldExecute() {
         when(projectRepository.findById(any())).thenReturn(Optional.of(new Project("")));
-        when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer(1L, "Name", "LastName", new Date(), 11)));
+        when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer(1L, "Name", "LastName", new Date(), 11,1)));
 
         Assertions.assertDoesNotThrow(() -> projectDao.delete((long)1));
         Assertions.assertDoesNotThrow(() -> developerDao.delete((long)1));
     }
+
     @Test
     void findByDepartmentIdShould(){
-        Assertions.assertNotNull(developerDao.findByDeveloperId(1));
+        Assertions.assertNotNull(developerDao.findByProjectId(1L));
     }
     }
 
