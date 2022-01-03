@@ -2,15 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-
-
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.okarin</groupId>
 	<artifactId>distributionapp</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0</version>
-
 
 <modules>
 	<module>domain</module>
@@ -82,20 +79,6 @@
 			<version>2.13.0-rc1</version>
 		</dependency>
 
-
-
-		<!-- thymeleaf -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
-			<version>2.5.3</version>
-		</dependency>
 
 		<!--Lombok-->
 		<dependency>

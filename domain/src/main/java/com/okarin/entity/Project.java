@@ -19,9 +19,6 @@ public class Project {
     private Long id;
 
     private String name;
-   //todo
-//    @OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
-//    private Set<Developer> developers=new HashSet<>();
 
     public Project() {
     }
