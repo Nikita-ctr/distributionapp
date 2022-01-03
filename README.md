@@ -1,4 +1,8 @@
 # distributionapp
+
+Rest application with two related entities
+
+
 #### Technologies used
 - SpringBoot
 - PostgreSql database
