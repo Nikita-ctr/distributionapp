@@ -38,12 +38,6 @@ public class Developer {
     @Column(name = "project_id")
     private long projectId;
 
-    //todo
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "project_id")
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    private Project project;
-
 
     public Developer(String first_name, String last_name, Date dateOfBirth, int projectHours, long projectId) {
         this.first_name = first_name;
