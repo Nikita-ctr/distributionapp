@@ -52,29 +52,29 @@ public class DeveloperServiceImplMockTest {
 
     @Test
     void createShouldProcessButEntityListEmpty() {
-         Assertions.assertThrows(ProjectNotFoundExeption.class, () -> developerService.create(new Developer(1L, "Name", "LastName", new Date(), 11,1)));
+        Assertions.assertThrows(ProjectNotFoundExeption.class, () -> developerService.create(new Developer(1L, "Name", "LastName", new Date(), 11,new Project(1L,"Giti"))));
         Assertions.assertThrows(DeveloperNotFoundExeption.class, () -> developerService.findById((long) 0));
 
-        when(projectRepository.findById(any())).thenReturn(Optional.of(new Project("")));
-        when(developerRepository.save(any())).thenReturn(new Developer(1L, "Name", "LastName", new Date(), 11,1));
-        Assertions.assertDoesNotThrow(() -> developerService.create(new Developer(1L, "Name", "LastName", new Date(), 11,1)));
+        when(projectRepository.findById(any())).thenReturn(Optional.of(new Project(1L,"")));
+        when(developerRepository.save(any())).thenReturn(new Developer(1L, "Name", "LastName", new Date(), 11,new Project()));
+        Assertions.assertDoesNotThrow(() -> developerService.create(new Developer(1L, "Name", "LastName", new Date(), 11,new Project())));
     }
 
     @Test
     void updateShouldThrowDeveloperNotFoundExceptionButNotWhenMocked() {
-        Assertions.assertThrows(DeveloperNotFoundExeption.class, () -> developerService.update(new Developer(1L, "Name", "LastName", new Date(), 11,1)));
+        Assertions.assertThrows(DeveloperNotFoundExeption.class, () -> developerService.update(new Developer(1L, "Name", "LastName", new Date(), 11,new Project())));
 
-        when(developerRepository.save(any())).thenReturn(new Developer(1L, "Name", "LastName", new Date(), 11,1));
-        when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer(1L, "Name", "LastName", new Date(), 11,1)));
-        Assertions.assertNotNull(developerService.update(new Developer(1L, "Name", "LastName", new Date(), 11,1)));
+        when(developerRepository.save(any())).thenReturn(new Developer(1L, "Name", "LastName", new Date(), 11,new Project()));
+        when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer(1L, "Name", "LastName", new Date(), 11,new Project())));
+        Assertions.assertNotNull(developerService.update(new Developer(1L, "Name", "LastName", new Date(), 11,new Project())));
     }
 
     @Test
     void deleteShouldThrowDeveloperNotFoundExceptionButNotWhenMocked() {
         Assertions.assertThrows(DeveloperNotFoundExeption.class, () -> developerService.delete(Mockito.anyLong()));
 
-        when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer(1L, "Name", "LastName", new Date(), 11,1)));
-        when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer(1L, "Name", "LastName", new Date(), 11,1)));
+        when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer(1L, "Name", "LastName", new Date(), 11,new Project())));
+        when(developerRepository.findById(any())).thenReturn(Optional.of(new Developer(1L, "Name", "LastName", new Date(), 11,new Project())));
         Assertions.assertDoesNotThrow(() -> developerService.delete((long) 1));
     }
 

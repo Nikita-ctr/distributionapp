@@ -10,7 +10,6 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
 @AllArgsConstructor
 public class Project {
 
@@ -20,10 +19,15 @@ public class Project {
 
     private String name;
 
+    @OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
+    private Set<Developer> developers=new HashSet<>();
+
     public Project() {
     }
 
-    public Project(String name) {
+
+    public Project(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
 

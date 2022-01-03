@@ -34,12 +34,9 @@ public class DeveloperServiceImpl implements DeveloperService{
         else throw new DeveloperNotFoundExeption(developerId);
     }
 
-
-    //todo fix
-
+    //todo
     @Override
     public Long create(Developer developer) {
-        projectService.findById(developer.getId());
         return developerDao.create(developer);
             }
 
@@ -59,5 +56,4 @@ public class DeveloperServiceImpl implements DeveloperService{
     public List<Developer> findByProjectId(Long projectId) {
         return developerDao.findByProjectId(projectId);
     }
-
 }

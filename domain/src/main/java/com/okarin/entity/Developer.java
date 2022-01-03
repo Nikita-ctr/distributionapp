@@ -1,5 +1,6 @@
 package com.okarin.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -35,16 +36,17 @@ public class Developer {
     @Column(name = "PROJECT_HOURS", length = 60)
     private int projectHours;
 
-    @Column(name = "project_id")
-    private long projectId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "project_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Project project;
 
-
-    public Developer(String first_name, String last_name, Date dateOfBirth, int projectHours, long projectId) {
+    public Developer(String first_name, String last_name, Date dateOfBirth, int projectHours, Project project) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.dateOfBirth = dateOfBirth;
         this.projectHours = projectHours;
-        this.projectId = projectId;
+        this.project = project;
     }
 
     public void cloneData(Developer developer) {

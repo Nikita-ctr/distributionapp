@@ -1,5 +1,7 @@
 package com.okarin.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +12,7 @@ public class ProjectTest {
 
     @Test
     public void getProjectSetters(){
-        Project project=new Project("Dex");
+        Project project=new Project(1L,"Dex");
 
         Assertions.assertEquals("Dex",project.getName());
 
@@ -23,21 +25,21 @@ public class ProjectTest {
     }
     @Test
     public void equalsTest(){
-        Project project=new Project("");
+        Project project=new Project(1L,"");
         assert project.equals(project);
         Assertions.assertNotEquals(project, new Object());
-        Project project1=new Project("");
+        Project project1=new Project(1L,"");
         Assertions.assertEquals(project, project1);
 
     }
     @Test
     public void toStringTest(){
-        Assertions.assertNotNull(new Project("").toString());
+        Assertions.assertNotNull(new Project(1L,"").toString());
     }
     @Test
     public void cloneDataTest(){
-        Project project=new Project("");
-        Project project1=new Project("XZ");
+        Project project=new Project(1L,"");
+        Project project1=new Project(1L,"XZ");
         project.cloneData(project1);
         Assertions.assertEquals(project,project1);
 

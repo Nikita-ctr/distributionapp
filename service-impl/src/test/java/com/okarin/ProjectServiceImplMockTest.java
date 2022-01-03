@@ -41,7 +41,7 @@ public class ProjectServiceImplMockTest {
 
     @Test
     void createShouldProcessButEntityListEmpty() {
-        when(projectRepository.save(any())).thenReturn(new Project("XZx"));
+        when(projectRepository.save(any())).thenReturn(new Project(1L,"XZx"));
 
         Assertions.assertNull(projectService.create(Mockito.any()));
         Assertions.assertThrows(ProjectNotFoundExeption.class,() -> projectService.findById((long)0));
@@ -51,16 +51,16 @@ public class ProjectServiceImplMockTest {
     void updateShouldThrowDepartmentNotFoundExceptionButNotWhenMocked() {
         Assertions.assertThrows(ProjectNotFoundExeption.class, () ->projectService.update(new Project(1L,"Giti")));
 
-        when(projectRepository.save(any())).thenReturn(new Project(1L,""));
-        when(projectRepository.findById(any())).thenReturn(Optional.of(new Project(1L,"")));
-        Assertions.assertNotNull(projectService.update(new Project(1L,"")));
+        when(projectRepository.save(any())).thenReturn(new Project(1L,"Giti"));
+        when(projectRepository.findById(any())).thenReturn(Optional.of(new Project(1L,"Giti")));
+        Assertions.assertNotNull(projectService.update(new Project(1L,"Giti")));
     }
 
     @Test
     void deleteShouldThrowDepartmentNotFoundExceptionButNotWhenMocked() {
         Assertions.assertThrows(ProjectNotFoundExeption.class, () -> projectService.delete(Mockito.anyLong()));
 
-        when(projectRepository.findById(any())).thenReturn(Optional.of(new Project("")));
+        when(projectRepository.findById(any())).thenReturn(Optional.of(new Project(1L,"")));
         Assertions.assertDoesNotThrow(() -> projectService.delete((long)1));
     }
 

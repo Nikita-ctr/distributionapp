@@ -44,7 +44,7 @@ public class DeveloperRepoTest {
     @Test
     void createShouldAddNewEntity(){
         long size=developerRepository.count();
-        developerRepository.save(new Developer("Nik","Khmil",new Date(),2,1));
+        developerRepository.save(new Developer("Nik","Khmil",new Date(),2,new Project()));
         Assertions.assertEquals(size+1,developerRepository.findAll().size());
     }
 
@@ -61,8 +61,8 @@ public class DeveloperRepoTest {
     //todo
 @Test
     void findByProjectIdShouldReturnRelated(){
-        Project project=projectRepository.save(new Project("A"));
-        Developer developer=developerRepository.save(new Developer("Nik","Khmil",new Date(),2,project.getId()));
+        Project project=projectRepository.save(new Project(1L,"A"));
+        Developer developer=developerRepository.save(new Developer("Nik","Khmil",new Date(),2,new Project()));
         Assertions.assertEquals(1,developerRepository.findByProjectId(project.getId()).size());
 }
 }

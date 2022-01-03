@@ -12,9 +12,7 @@ import java.util.Optional;
 public class DeveloperDaoJdbc implements DeveloperDao {
 
     @Autowired
-  DeveloperRepository developerRepository;
-
-
+    DeveloperRepository developerRepository;
 
     @Override
     public List<Developer> findAll() {

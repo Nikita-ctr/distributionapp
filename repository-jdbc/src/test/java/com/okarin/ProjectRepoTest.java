@@ -37,7 +37,7 @@ public class ProjectRepoTest {
 @Test
     void createShouldAddNewEntity(){
         long size=projectRepository.count();
-        projectRepository.save(new Project("A"));
+        projectRepository.save(new Project(1L,"A"));
         Assertions.assertEquals(size+1,projectRepository.findAll().size());
 }
 @Test
