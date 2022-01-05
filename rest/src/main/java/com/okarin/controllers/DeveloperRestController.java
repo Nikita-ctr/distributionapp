@@ -42,7 +42,7 @@ public class DeveloperRestController {
         Optional<Project> project=projectService.findById(projectId);
         if (project.isPresent()){
             developer.setProject(project.get());
-            project.get().getDevelopers().add(developer);
+                   project.get().getDevelopers().add(developer);
             return new ResponseEntity<>(developerService.create(developer),HttpStatus.CREATED);
         } else {
             throw new ProjectNotFoundExeption(projectId);

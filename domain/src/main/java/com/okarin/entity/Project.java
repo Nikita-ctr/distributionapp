@@ -31,6 +31,7 @@ public class Project {
         this.name = name;
     }
 
+
     public void cloneData(Project project){
         this.name=project.getName();
     }
